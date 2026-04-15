@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research & Consultancy | Walchand College of Engineering</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="theme.js"></script>
+    <script src="translate.js" defer></script>
+    <style>
+        /* Research Page Specific Styles */
+        .research-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .research-stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .research-stat-card:hover {
+            border-color: var(--red);
+            transform: translateY(-5px);
+        }
+
+        .research-stat-card h3 {
+            font-size: 32px;
+            color: var(--red);
+            margin-bottom: 5px;
+            font-family: 'EB Garamond', serif;
+        }
+
+        .research-stat-card p {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-secondary);
+            font-weight: 700;
+        }
+
+        .research-portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .portal-card {
+            background: var(--bg-main);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 35px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .portal-card:hover {
+            background: var(--bg-card);
+            border-color: var(--red);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .portal-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: var(--red-light);
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 16px;
+            color: var(--red);
+        }
+
+        .portal-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'EB Garamond', serif;
+            color: var(--text-primary);
+        }
+
+        .portal-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .portal-list li {
+            font-size: 14.5px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .portal-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--red);
+            font-weight: bold;
+        }
+
+        .sponsored-section {
+            background: var(--bg-card);
+            border-radius: 32px;
+            padding: 50px;
+            margin-top: 60px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .sponsored-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 35px;
+        }
+
+        @media (max-width: 900px) {
+            .sponsored-grid { grid-template-columns: 1fr; }
+        }
+
+        .sponsored-col h4 {
+            font-family: 'EB Garamond', serif;
+            font-size: 22px;
+            color: var(--red);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .project-item {
+            background: var(--bg-main);
+            padding: 18px 24px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-subtle);
+            font-size: 14px;
+            color: var(--text-primary);
+            transition: 0.3s;
+        }
+
+        .project-item:hover {
+            border-color: var(--red);
+            background: var(--bg-card);
+        }
+
+        .funding-row {
+            display: flex;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .funding-card {
+            flex: 1;
+            padding: 30px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--red) 0%, #8e1c0f 100%);
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .funding-card:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+        }
+
+        .funding-card i {
+            font-style: normal;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.8;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .funding-card h3 {
+            font-family: 'EB Garamond', serif;
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-wrap">
+            <a href="home.html">
+                <img src="images/wce-logo.png" alt="WCE Logo" style="border-radius: 50%;">
+            </a>
+        </div>
+        <div class="header-text">
+            <div class="est" >Established 1947</div>
+            <a href="home.html" style="text-decoration: none; color: inherit; display: inline-block;">
+                <h1>Walchand College of Engineering</h1>
+            </a>
+            <div class="subtitle"  style="font-size: 15px; letter-spacing: 0.5px; font-weight: 600; color: var(--red); margin-top: 5px;">
+                Government-Aided Autonomous Institute · Professional Excellence for 75+ Years
+            </div>
+            <div class="header-badges">
+                <span class="badge" >NAAC A+ Grade</span>
+                <span class="badge" >NBA Accredited</span>
+                <span class="badge" >NIRF Ranked</span>
+                <span class="badge" >AICTE Approved</span>
+                <span class="badge" >UGC Autonomous</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-options-grid">
+                <a href="https://walchandsangli.ac.in/campus-life/online-platforms/" target="_blank" class="header-grid-item" >Online Services</a>
+                <a href="https://walchandsangli.ac.in/communication/" target="_blank" class="header-grid-item" >Communication</a>
+                <a href="http://alumni.walchandsangli.ac.in" target="_blank" class="header-grid-item" >Alumni Portal</a>
+                <a href="https://walchandsangli.ac.in/campus-life/online-platforms/" target="_blank" class="header-grid-item" >🔗 Portals</a>
+                <a href="https://walchandsangli.ac.in/admissions/first-year-btech/" target="_blank" class="header-grid-item" >📋 Admissions</a>
+
+                <button class="header-grid-item"  title="Quick Search">🔍 Search</button>
+                <button class="header-grid-item"  title="Toggle Dark Mode">🌓 Theme</button>
+                <select class="header-grid-item lang-select" title="Language Switch" style="background: var(--bg-main); border: 1px solid var(--border-subtle); color: var(--text-primary); cursor: pointer;">
+                    <option value="en">🌐 English</option>
+                    <option value="hi">🌐 Hindi</option>
+                    <option value="mr">🌐 मराठी</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    <div id="google_translate_hidden_element"></div>
+    <div id="google_translate_element_hidden" style="display:none;"></div>
+
+    <nav>
+        <a href="home.html" >Home</a>
+        <a href="about.html" >About Us</a>
+        <a href="academics.html" >Academics</a>
+        <a href="admissions.html" >Admissions</a>
+        <a href="placements.html" >Placements</a>
+        <a href="campus-life.html" >Campus Life</a>
+        <a href="research.html" class="active" >Research</a>
+        <a href="clubs.html" >Clubs</a>
+        <a href="contact.html" >Contact Us</a>
+        <a href="notices.html" >Notices</a>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <div class="bg"
+            style="background-image: linear-gradient(135deg, rgba(20, 20, 20, 0.92) 0%, rgba(142, 28, 15, 0.75) 100%), url('images/ailab1.jpeg'); background-size: cover; background-position: center;">
+        </div>
+        <div class="hero-inner">
+            <div class="breadcrumb"><a href="home.html" >Home</a> › Research & Consultancy</div>
+            <h2>Innovation & R&D</h2>
+            <p>Driving technological progress through cutting-edge research, industrial consultancy, and collaborative excellence.</p>
+        </div>
+    </div>
+
+    <div class="page-wrap has-sidebar">
+        <div class="main-col">
+
+            <!-- STATS COUNTER -->
+            <div class="research-stats">
+                <div class="research-stat-card">
+                    <h3>500+</h3>
+                    <p>Research Papers</p>
+                </div>
+                <div class="research-stat-card">
+                    <h3>25+</h3>
+                    <p>Patents Filed</p>
+                </div>
+                <div class="research-stat-card">
+                    <h3>₹15Cr+</h3>
+                    <p>Recent Research Grants</p>
+                </div>
+                <div class="research-stat-card">
+                    <h3>15</h3>
+                    <p>Centres of Excellence</p>
+                </div>
+            </div>
+
+            <div class="section-title">Research Overview</div>
+            <p style="color: var(--text-secondary); line-height: 1.7; font-size: 15.5px; margin-bottom: 40px;">
+                Walchand College of Engineering is a hub for innovation, bridging the gap between theoretical academia and industrial application. Our research ecosystem is powered by a robust R&D Cell, protected by a dedicated IPR Cell, and fueled by global collaborations.
+            </p>
+
+            <div class="research-portal-grid">
+                <!-- Portal 1: Academic Research -->
+                <div class="portal-card">
+                    <div class="portal-icon">🎓</div>
+                    <h3>Academic Research</h3>
+                    <ul class="portal-list">
+                        <li>High-impact Faculty Publications</li>
+                        <li>Postgraduate & PhD Student Research</li>
+                        <li>Global Patent Filing & Protection</li>
+                        <li>International Conference Participations</li>
+                    </ul>
+                </div>
+
+                <!-- Portal 2: Industrial Consultancy -->
+                <div class="portal-card">
+                    <div class="portal-icon">⚙️</div>
+                    <h3>Industrial Testing & Consultancy</h3>
+                    <ul class="portal-list">
+                        <li>Third-party Quality Audits</li>
+                        <li>Structural Testing & Consultancy</li>
+                        <li>Material Analysis Services</li>
+                        <li>Software & System Development</li>
+                    </ul>
+                </div>
+
+                <!-- Portal 3: Excellence Centers -->
+                <div class="portal-card">
+                    <div class="portal-icon">🏫</div>
+                    <h3>Centres of Excellence</h3>
+                    <ul class="portal-list">
+                        <li>AI & ML Innovation Centre</li>
+                        <li>VLSI & Embedded Systems Lab</li>
+                        <li>High Performance Computing Centre</li>
+                        <li>Environmental Engineering Research</li>
+                    </ul>
+                </div>
+
+                <!-- Portal 4: R&D Management -->
+                <div class="portal-card">
+                    <div class="portal-icon">📊</div>
+                    <h3>R&D Management</h3>
+                    <ul class="portal-list">
+                        <li>Dedicated R&D and IPR Cells</li>
+                        <li>Institute Research Indicators</li>
+                        <li>Scientific Indexing & Performance</li>
+                        <li>Intellectual Property Roadmap</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SPONSORED RESEARCH -->
+            <div class="sponsored-section">
+                <div class="section-title" style="border-left: 4px solid var(--red); padding-left: 20px;">Sponsored Research & Grants</div>
+                <p style="color: var(--text-secondary); margin-top: 15px; font-size: 14.5px;">Collaborating with top-tier government agencies and global industry leaders to solve complex engineering challenges.</p>
+                
+                <div class="sponsored-grid">
+                    <!-- Government Column -->
+                    <div class="sponsored-col">
+                        <h4>🏛️ Government Projects</h4>
+                        <div class="project-item">National Air Monitoring Program (NAMP)</div>
+                        <div class="project-item">DST Funded Heavy Structures Laboratory</div>
+                        <div class="project-item">NSM Nodal Centre for HPC & AI Training</div>
+                        <div class="project-item">RGSTC-MSME Research Internship Programme</div>
+                    </div>
+                    
+                    <!-- Industry Column -->
+                    <div class="sponsored-col">
+                        <h4>🏢 Industry Sponsored</h4>
+                        <div class="project-item">Rubiscape Centre of Excellence (Data Science)</div>
+                        <div class="project-item">Dassault Product Innovation Laboratory</div>
+                        <div class="project-item">Siemens Automation & Drives Laboratory</div>
+                        <div class="project-item">5G & IoT for Intelligent Healthcare Lab</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FUNDING SECTION -->
+            <div class="funding-row">
+                <a href="#" class="funding-card">
+                    <i>Internal Funding</i>
+                    <h3>Seth Gulabchand Foundation</h3>
+                </a>
+                <a href="#" class="funding-card">
+                    <i>External Funding</i>
+                    <h3>Sakal Research Fund (SRF)</h3>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="sidebar-card">
+                <div class="section-title" style="font-size:17px; border-left: 3px solid var(--red);">Measurable Outcomes</div>
+                <div class="prose" style="font-size: 13.5px; color: var(--text-secondary);">
+                    <p>Our commitment to research is measured through continuous monitoring of:</p>
+                    <ul style="padding-left: 18px; margin-top: 10px;">
+                        <li>Papers published in Scopus & WoS</li>
+                        <li>Citations & H-Index of Faculty</li>
+                        <li>Research Grants Sanctioned (INR)</li>
+                        <li>Consultancy Projects Completed</li>
+                        <li>Patents Published & Granted</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-card" style="background: var(--bg-card);">
+                <div class="section-title" style="font-size:17px;">Research Policy</div>
+                <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 15px;">
+                    Understand the ethical guidelines and institutional protocols for conducting research at WCE.
+                </p>
+                <a href="https://walchandsangli.ac.in/research-consultancy/overview/" target="_blank" class="btn-view" style="width: 100%; text-align: center; border-radius: 8px; display: block; text-decoration: none;">Download PDF</a>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="section-title" style="font-size:17px;">Quick Links</div>
+                <div class="sidebar-links">
+                    <a href="https://walchandsangli.ac.in/research-consultancy/rd-cell/">R&D Cell Portal</a>
+                    <a href="https://walchandsangli.ac.in/research-consultancy/ipr-cell/">IPR Documentation</a>
+                    <a href="clubs.html">Student Research Innovation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="chatbot-fab" title="Chat with us">💬</button>
+
+    <footer class="modern-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-about">
+                    <img src="images/wce-logo.png" alt="WCE Logo"
+                        class="footer-logo">
+                    <div class="footer-brand-text">
+                        <h3 >Walchand College of Engineering</h3>
+                        <p class="institute-type" >A Government-Aided Autonomous Institute · Estd. 1947</p>
+                    </div>
+                    <p class="about-description" >Producing top-tier technological talent and driving cutting-edge
+                        research for over 75 years. Affiliated to Shivaji University, Kolhapur.</p>
+                </div>
+
+                <div class="footer-links-grid">
+                    <div class="footer-column">
+                        <h4 >Academics</h4>
+                        <ul>
+                            <li><a href="admissions.html" >B.Tech Admissions</a></li>
+                            <li><a href="admissions.html" >Postgraduate M.Tech</a></li>
+                            <li><a href="admissions.html">Research & PhD</a></li>
+                            <li><a href="admissions.html" >Diploma Courses</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 >Campus Life</h4>
+                        <ul>
+                            <li><a href="campus-life.html" >Campus Infrastructure</a></li>
+                            <li><a href="campus-life.html" >Student Hostels</a></li>
+                            <li><a href="campus-life.html" >Library Facilities</a></li>
+                            <li><a href="campus-life.html" >Virtual Campus Tour</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 >Contact Us</h4>
+                        <div class="contact-info">
+                            <p >📍 Vishrambag, Sangli - 416415, MH</p>
+                            <p>📞 <a href="tel:+912332300383">+91 233 2300383</a></p>
+                            <p>✉️ <a href="mailto:info@walchandsangli.ac.in">info@walchandsangli.ac.in</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <div class="copyright">© 2025 atharva pednekar. All Rights Reserved.</div>
+                <div class="visitor-counter" style="color: var(--text-secondary); font-size: 13px; display: flex; align-items: center; gap: 8px;">
+                    <span style="background: var(--red); color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 10px;">LIVE</span>
+                    👁️ Visitor Count: <span style="color: var(--text-primary); font-weight: 600;">1,24,567</span>
+                </div>
+                <div class="footer-legal">
+                    <a href="#" >Privacy Policy</a>
+                    <a href="#" >Terms of Use</a>
+                    <a href="#" >RTI</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="search.js"></script>
+
+</body>
+
+</html>

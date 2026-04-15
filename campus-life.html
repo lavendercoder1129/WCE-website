@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Life | Walchand College of Engineering</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="theme.js"></script>
+    <script src="translate.js" defer></script>
+    <style>
+        /* Campus Life Specific Enhancements */
+        .campus-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .campus-stat-box {
+            background: var(--bg-main);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .campus-stat-box:hover {
+            border-color: var(--red);
+            background: var(--bg-card);
+            transform: translateY(-5px);
+        }
+
+        .campus-stat-box h4 {
+            font-size: 24px;
+            font-family: 'EB Garamond', serif;
+            color: var(--red);
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        .campus-stat-box span {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* Gallery System */
+        .gallery-container {
+            margin-top: 60px;
+        }
+
+        .masonry-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-auto-rows: 240px;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 25px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay span {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        /* Large items for masonry effect */
+        .gallery-item.wide { grid-column: span 2; }
+        .gallery-item.tall { grid-row: span 2; }
+
+        @media (max-width: 768px) {
+            .gallery-item.wide { grid-column: span 1; }
+            .gallery-item.tall { grid-row: span 1; }
+        }
+
+        /* Infrastructure Icons */
+        .infra-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .infra-card {
+            display: flex;
+            gap: 20px;
+            padding: 25px;
+            background: var(--bg-card);
+            border-radius: 20px;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s;
+        }
+
+        .infra-card:hover {
+            border-color: var(--red);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+
+        .infra-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--red-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+            color: var(--red);
+        }
+
+        .infra-info h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .infra-info p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-wrap">
+            <a href="home.html">
+                <img src="images/wce-logo.png" alt="WCE Logo" style="border-radius: 50%;">
+            </a>
+        </div>
+        <div class="header-text">
+            <div class="est" >Established 1947</div>
+            <a href="home.html" style="text-decoration: none; color: inherit; display: inline-block;">
+                <h1>Walchand College of Engineering</h1>
+            </a>
+            <div class="subtitle"  style="font-size: 15px; letter-spacing: 0.5px; font-weight: 600; color: var(--red); margin-top: 5px;">
+                Government-Aided Autonomous Institute · Professional Excellence for 75+ Years
+            </div>
+            <div class="header-badges">
+                <span class="badge" >NAAC A+ Grade</span>
+                <span class="badge" >NBA Accredited</span>
+                <span class="badge" >NIRF Ranked</span>
+                <span class="badge" >AICTE Approved</span>
+                <span class="badge" >UGC Autonomous</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-options-grid">
+                <a href="https://walchandsangli.ac.in/campus-life/online-platforms/" target="_blank" class="header-grid-item" >Online Services</a>
+                <a href="https://walchandsangli.ac.in/communication/" target="_blank" class="header-grid-item" >Communication</a>
+                <a href="http://alumni.walchandsangli.ac.in" target="_blank" class="header-grid-item" >Alumni Portal</a>
+                <a href="https://walchandsangli.ac.in/campus-life/online-platforms/" target="_blank" class="header-grid-item" >🔗 Portals</a>
+                <a href="https://walchandsangli.ac.in/admissions/first-year-btech/" target="_blank" class="header-grid-item" >📋 Admissions</a>
+
+                <button class="header-grid-item"  title="Quick Search">🔍 Search</button>
+                <button class="header-grid-item"  title="Toggle Dark Mode">🌓 Theme</button>
+                <select class="header-grid-item lang-select" title="Language Switch" style="background: var(--bg-main); border: 1px solid var(--border-subtle); color: var(--text-primary); cursor: pointer;">
+                    <option value="en">🌐 English</option>
+                    <option value="hi">🌐 Hindi</option>
+                    <option value="mr">🌐 मराठी</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    <div id="google_translate_hidden_element"></div>
+    <div id="google_translate_element_hidden" style="display:none;"></div>
+
+    <nav>
+        <a href="home.html" >Home</a>
+        <a href="about.html" >About Us</a>
+        <a href="academics.html" >Academics</a>
+        <a href="admissions.html" >Admissions</a>
+        <a href="placements.html" >Placements</a>
+        <a href="campus-life.html" class="active" >Campus Life</a>
+        <a href="research.html" >Research</a>
+        <a href="clubs.html" >Clubs</a>
+        <a href="contact.html" >Contact Us</a>
+        <a href="notices.html" >Notices</a>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <div class="bg"
+            style="background-image: linear-gradient(135deg, rgba(142,28,15,0.88) 0%, rgba(10,10,10,0.95) 100%), url('images/academic-complex.webp'); background-size: cover; background-position: center;">
+        </div>
+        <div class="hero-inner">
+            <div class="breadcrumb"><a href="home.html" >Home</a> › Campus Life</div>
+            <h2>Life at WCE</h2>
+            <p>Spanning 90 acres of architectural legacy and natural beauty, WCE Sangli is more than an institute—it's a home for innovation and holistic growth.</p>
+        </div>
+    </div>
+
+    <div class="page-wrap has-sidebar">
+        <div class="main-col">
+
+            <!-- INFRASTRUCTURE OVERVIEW -->
+            <div class="section-title">Campus & Infrastructure</div>
+            <p style="color: var(--text-secondary); line-height: 1.7; font-size: 15.5px; margin-bottom: 30px;">
+                Walchand College of Engineering boasts a sprawling 90-acre campus that perfectly blends historic 1947 architectural charm with modern, state-of-the-art facilities. Our serene, tree-lined environment provides the ideal backdrop for rigorous academic pursuit and personal discovery.
+            </p>
+
+            <div class="infra-feature-grid">
+                <div class="infra-card">
+                    <div class="infra-icon">🏛️</div>
+                    <div class="infra-info">
+                        <h4>Academic Complex</h4>
+                        <p>Modern classrooms and advanced audio-visual halls designed for 21st-century learning.</p>
+                    </div>
+                </div>
+                <div class="infra-card">
+                    <div class="infra-icon">📚</div>
+                    <div class="infra-info">
+                        <h4>Ajit Gulabchand Library</h4>
+                        <p>Over 1,00,000+ volumes, digital reading halls, and access to global research journals.</p>
+                    </div>
+                </div>
+                <div class="infra-card">
+                    <div class="infra-icon">🔬</div>
+                    <div class="infra-info">
+                        <h4>Advanced Labs</h4>
+                        <p>Specialized RNA, AI, and IDEA labs equipped with the latest industrial technologies.</p>
+                    </div>
+                </div>
+                <div class="infra-card">
+                    <div class="infra-icon">🏸</div>
+                    <div class="infra-info">
+                        <h4>Sports Hub</h4>
+                        <p>Comprehensive facilities for indoor and outdoor sports, including a modern gymkhana.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THE GALLERY -->
+            <div class="gallery-container">
+                <div class="section-title">Campus Gallery</div>
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">Visual glimpses of the iconic WCE campus.</p>
+                
+                <div class="masonry-gallery">
+                    <!-- Row 1 -->
+                    <div class="gallery-item wide">
+                        <img src="images/academic-complex.webp" alt="Academic Complex">
+                        <div class="gallery-overlay">
+                            <h4>Academic Complex</h4>
+                            <span>The heart of WCE learning</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/Entrance Gate.webp" alt="Main Entrance">
+                        <div class="gallery-overlay">
+                            <h4>Main Entrance</h4>
+                            <span>Heritage & Legacy</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="gallery-item tall">
+                        <img src="images/library-Building.webp" alt="Central Library">
+                        <div class="gallery-overlay">
+                            <h4>Central Library</h4>
+                            <span>Knowledge hub of WCE</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/steam-engine frontgate.jpeg" alt="Historic Steam Engine">
+                        <div class="gallery-overlay">
+                            <h4>Iconic Steam Engine</h4>
+                            <span>A tribute to engineering history</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/ganpati-temple.webp" alt="Ganpati Temple">
+                        <div class="gallery-overlay">
+                            <h4>Campus Temple</h4>
+                            <span>Spiritual serenity at WCE</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="gallery-item wide">
+                        <img src="images/foothpath.jpg" alt="Tree-lined walkways">
+                        <div class="gallery-overlay">
+                            <h4>Campus Walkways</h4>
+                            <span>Lush green natural surroundings</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 4 -->
+                    <div class="gallery-item">
+                        <img src="images/gym.webp" alt="Gymnasium">
+                        <div class="gallery-overlay">
+                            <h4>Gymkhana</h4>
+                            <span>Fitness & Athletics</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item tall">
+                        <img src="images/library-stairs.webp" alt="Library Interior">
+                        <div class="gallery-overlay">
+                            <h4>Library Interiors</h4>
+                            <span>Space for quiet reflection</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/self-studyroom.webp" alt="Self Study Room">
+                        <div class="gallery-overlay">
+                            <h4>Self-Study Zones</h4>
+                            <span>24/7 student access</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 5 -->
+                    <div class="gallery-item wide">
+                        <img src="images/badminton-court.webp" alt="Badminton Court">
+                        <div class="gallery-overlay">
+                            <h4>Badminton Courts</h4>
+                            <span>Indoor sports excellence</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/it-dept-hut.webp" alt="IT Dept Hut">
+                        <div class="gallery-overlay">
+                            <h4>The IT 'Hut'</h4>
+                            <span>A legendary campus landmark</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STUDENT HOUSING -->
+            <div class="section-title" style="margin-top: 60px;">Student Housing & Lifestyle</div>
+            <div class="academic-section-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 30px; display: grid; gap: 40px;">
+                <div class="philosophy-card">
+                    <h3 style="font-family: 'EB Garamond', serif; font-size: 24px; color: var(--red); margin-bottom: 15px;">Hostels & Mess</h3>
+                    <p style="font-size: 14.5px; line-height: 1.7; color: var(--text-secondary);">
+                        With separate accommodation for 1500+ students, our hostels offer a vibrant community life. Each hostel is equipped with high-speed Wi-Fi, modern mess facilities, and common rooms for recreation.
+                    </p>
+                </div>
+                <div class="philosophy-card">
+                    <h3 style="font-family: 'EB Garamond', serif; font-size: 24px; color: var(--red); margin-bottom: 15px;">Sustainability</h3>
+                    <p style="font-size: 14.5px; line-height: 1.7; color: var(--text-secondary);">
+                        WCE is committed to a 'Green Campus' initiative, featuring solar power grids, rainwater harvesting, and waste management systems integrated into our sprawling landscape.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="sidebar-card">
+                <div class="section-title" style="font-size:17px; border-left: 3px solid var(--red);">Campus Stats</div>
+                <div class="campus-stats-grid">
+                    <div class="campus-stat-box">
+                        <h4>90</h4>
+                        <span>Acres Area</span>
+                    </div>
+                    <div class="campus-stat-box">
+                        <h4>100K+</h4>
+                        <span>Lib Volumes</span>
+                    </div>
+                    <div class="campus-stat-box">
+                        <h4>1500+</h4>
+                        <span>Residents</span>
+                    </div>
+                    <div class="campus-stat-box">
+                        <h4>40+</h4>
+                        <span>Student Clubs</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-card" style="background: var(--red-light); border: none;">
+                <div class="section-title" style="font-size:17px; border-left: 3px solid var(--red); color: var(--red-dark);">Quick Access</div>
+                <div class="sidebar-links">
+                    <a href="https://walchandsangli.ac.in/360vr/WCE03.html" target="_blank">Virtual 360° Tour</a>
+                    <a href="https://walchandsangli.ac.in/campus-life/hostels-cl/">Hostel Fee Structure</a>
+                    <a href="https://walchandsangli.ac.in/campus-life/student-scholarships/">Financial Aid & Scholarships</a>
+                    <a href="clubs.html">Student Organizations</a>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="section-title" style="font-size:17px;">Campus Notices</div>
+                <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 15px;">
+                    Stay updated with the latest campus notifications and hostel announcements.
+                </p>
+                <a href="notices.html" class="btn-view" style="width: 100%; text-align: center; border-radius: 8px; display: block; text-decoration: none;">View Board</a>
+            </div>
+        </div>
+    </div>
+
+    <button class="chatbot-fab" title="Chat with us">💬</button>
+
+    <footer class="modern-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-about">
+                    <img src="images/wce-logo.png" alt="WCE Logo"
+                        class="footer-logo">
+                    <div class="footer-brand-text">
+                        <h3 >Walchand College of Engineering</h3>
+                        <p class="institute-type" >A Government-Aided Autonomous Institute · Estd. 1947</p>
+                    </div>
+                    <p class="about-description" >Producing top-tier technological talent and driving cutting-edge
+                        research for over 75 years. Affiliated to Shivaji University, Kolhapur.</p>
+                </div>
+
+                <div class="footer-links-grid">
+                    <div class="footer-column">
+                        <h4 >Academics</h4>
+                        <ul>
+                            <li><a href="admissions.html" >B.Tech Admissions</a></li>
+                            <li><a href="admissions.html" >Postgraduate M.Tech</a></li>
+                            <li><a href="admissions.html">Research & PhD</a></li>
+                            <li><a href="admissions.html" >Diploma Courses</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 >Campus Life</h4>
+                        <ul>
+                            <li><a href="campus-life.html" >Campus Infrastructure</a></li>
+                            <li><a href="campus-life.html" >Student Hostels</a></li>
+                            <li><a href="campus-life.html" >Library Facilities</a></li>
+                            <li><a href="campus-life.html" >Virtual Campus Tour</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 >Contact Us</h4>
+                        <div class="contact-info">
+                            <p >📍 Vishrambag, Sangli - 416415, MH</p>
+                            <p>📞 <a href="tel:+912332300383">+91 233 2300383</a></p>
+                            <p>✉️ <a href="mailto:info@walchandsangli.ac.in">info@walchandsangli.ac.in</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <div class="copyright">© 2025 atharva pednekar. All Rights Reserved.</div>
+                <div class="visitor-counter" style="color: var(--text-secondary); font-size: 13px; display: flex; align-items: center; gap: 8px;">
+                    <span style="background: var(--red); color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 10px;">LIVE</span>
+                    👁️ Visitor Count: <span style="color: var(--text-primary); font-weight: 600;">1,24,567</span>
+                </div>
+                <div class="footer-legal">
+                    <a href="#" >Privacy Policy</a>
+                    <a href="#" >Terms of Use</a>
+                    <a href="#" >RTI</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="search.js"></script>
+
+</body>
+
+</html>

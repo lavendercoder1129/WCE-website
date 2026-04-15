@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home – WCE Sangli</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="theme.js"></script>
+    <script src="translate.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-wrap">
+            <a href="home.html">
+                <img src="images/wce-logo.png" alt="WCE Logo" style="border-radius: 50%;">
+            </a>
+        </div>
+        <div class="header-text">
+            <div class="est">Established 1947</div>
+            <a href="home.html" style="text-decoration: none; color: inherit; display: inline-block;">
+                <h1>Walchand College of Engineering</h1>
+            </a>
+            <div class="subtitle"
+                style="font-size: 15px; letter-spacing: 0.5px; font-weight: 600; color: var(--red); margin-top: 5px;">
+                Government-Aided Autonomous Institute · Professional Excellence for 75+ Years
+            </div>
+            <div class="header-badges">
+                <span class="badge">NAAC A+ Grade</span>
+                <span class="badge">NBA Accredited</span>
+                <span class="badge">NIRF Ranked</span>
+                <span class="badge">AICTE Approved</span>
+                <span class="badge">UGC Autonomous</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-options-grid">
+                <a href="https://walchandsangli.ac.in/campus-life/online-platforms/" target="_blank"
+                    class="header-grid-item">Online Services</a>
+                <a href="https://walchandsangli.ac.in/communication/" target="_blank"
+                    class="header-grid-item">Communication</a>
+                <a href="http://alumni.walchandsangli.ac.in" target="_blank" class="header-grid-item">Alumni Portal</a>
+                <a href="https://walchandsangli.ac.in/campus-life/online-platforms/" target="_blank"
+                    class="header-grid-item">🔗 Portals</a>
+                <a href="https://walchandsangli.ac.in/admissions/first-year-btech/" target="_blank"
+                    class="header-grid-item">📋 Admissions</a>
+                <button class="header-grid-item" title="Quick Search">🔍 Search</button>
+                <button class="header-grid-item" title="Toggle Dark Mode">🌓 Theme</button>
+                <select class="header-grid-item lang-select" title="Language Switch"
+                    style="background: var(--bg-main); border: 1px solid var(--border-subtle); color: var(--text-primary); cursor: pointer;">
+                    <option value="en">🌐 English</option>
+                    <option value="hi">🌐 Hindi</option>
+                    <option value="mr">🌐 Marathi</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    <div id="google_translate_hidden_element"></div>
+    <div id="google_translate_element_hidden" style="display:none;"></div>
+
+    <nav>
+        <a href="home.html" class="active">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="academics.html">Academics</a>
+        <a href="admissions.html">Admissions</a>
+        <a href="placements.html">Placements</a>
+        <a href="campus-life.html">Campus Life</a>
+        <a href="research.html">Research</a>
+        <a href="clubs.html">Clubs</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="notices.html">Notices</a>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero"
+        style="min-height: 550px; height: auto; align-items: center; justify-content: center; padding-top: 60px; padding-bottom: 60px;">
+        <div class="bg"
+            style="background-image: linear-gradient(135deg, rgba(142,28,15,0.88) 0%, rgba(26,26,26,0.98) 100%), url('images/Entrance Gate.webp'); background-size: cover; background-position: center;">
+        </div>
+        <div class="pattern" style="opacity: 0.6;"></div>
+
+        <div class="hero-inner"
+            style="width: 100%; max-width: 1600px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 40px; align-items: center;">
+
+
+
+            <!-- FULL WIDTH PLACEMENTS MARQUEE -->
+            <div
+                style="width: 100%;text-align: center; background: rgba(0,0,0,0.25); padding: 35px 0; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(8px); box-shadow: 0 15px 40px rgba(0,0,0,0.5);">
+                <h3
+                    style="font-size: 32px; color: #fff; margin-bottom: 25px; font-family: 'EB Garamond', serif; font-weight: 600; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+                    Stellar Placement Records</h3>
+
+                <div class="marquee-container"
+                    style="margin-bottom: 30px; -webkit-mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent); mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);">
+                    <div class="marquee-content" style="animation-duration: 40s;">
+                        <img src="images/placement1.jpeg" alt="Placement Insight">
+                        <img src="images/placement2.jpeg" alt="Placement Insight">
+                        <img src="images/placement3.jpeg" alt="Placement Insight">
+                        <img src="images/placement4.jpeg" alt="Placement Insight">
+                        <!-- Cloned for seamless loop -->
+                        <img src="images/placement1.jpeg" alt="Placement Insight">
+                        <img src="images/placement2.jpeg" alt="Placement Insight">
+                        <img src="images/placement3.jpeg" alt="Placement Insight">
+                        <img src="images/placement4.jpeg" alt="Placement Insight">
+                    </div>
+                </div>
+                <!-- PLACEMENT HIGHLIGHTS (from user request) -->
+                <div class="stats-banner"
+                    style="grid-template-columns: repeat(4, 1fr); margin-bottom: 40px; padding: 0 40px; color:white">
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-content">
+                            <div class="stat-num">₹1.5 CR / Annum</div>
+                            <div class="stat-desc">Highest Package</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💼</div>
+                        <div class="stat-content">
+                            <div class="stat-num">₹12 LPA</div>
+                            <div class="stat-desc">Average Package</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏭</div>
+                        <div class="stat-content">
+                            <div class="stat-num">300+</div>
+                            <div class="stat-desc">Companies Visit Campus</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🤝</div>
+                        <div class="stat-content">
+                            <div class="stat-num">100%</div>
+                            <div class="stat-desc">Placement Assistance</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- HIRING PARTNERS MARQUEE (Inside Translucent Container) -->
+                <div class="hiring-partners-section" style="margin-bottom: 40px; padding-top: 20px;">
+                    <h3
+                        style="text-align: center; font-size: 24px; font-weight: 600; margin-bottom: 35px; color: #ffffff; font-family: 'EB Garamond', serif; letter-spacing: 1px;">
+                        Top Hiring Partners</h3>
+                    <div class="partners-marquee-wrapper">
+                        <div class="partner-track-container">
+                            <!-- Typographic Brand Logotypes because external DNS is completely blocked -->
+                            <span class="text-logo">Tally</span>
+                            <span class="text-logo">Pepsi</span>
+                            <span class="text-logo">OYO</span>
+                            <span class="text-logo">HSBC</span>
+                            <span class="text-logo">HDFC Life</span>
+                            <span class="text-logo">Mu Sigma</span>
+                            <span class="text-logo">MobiKwik</span>
+                            <span class="text-logo flex-logo"><svg width="30" height="20" viewBox="0 0 100 40"
+                                    fill="none" stroke="currentColor" stroke-width="4">
+                                    <circle cx="20" cy="20" r="14" />
+                                    <circle cx="40" cy="20" r="14" />
+                                    <circle cx="60" cy="20" r="14" />
+                                    <circle cx="80" cy="20" r="14" />
+                                </svg> Audi</span>
+                            <span class="text-logo">Adani</span>
+
+                            <!-- Duplicated for flawless continuous loop -->
+                            <span class="text-logo">Tally</span>
+                            <span class="text-logo">Pepsi</span>
+                            <span class="text-logo">OYO</span>
+                            <span class="text-logo">HSBC</span>
+                            <span class="text-logo">HDFC Life</span>
+                            <span class="text-logo">Mu Sigma</span>
+                            <span class="text-logo">MobiKwik</span>
+                            <span class="text-logo flex-logo"><svg width="30" height="20" viewBox="0 0 100 40"
+                                    fill="none" stroke="currentColor" stroke-width="4">
+                                    <circle cx="20" cy="20" r="14" />
+                                    <circle cx="40" cy="20" r="14" />
+                                    <circle cx="60" cy="20" r="14" />
+                                    <circle cx="80" cy="20" r="14" />
+                                </svg> Audi</span>
+                            <span class="text-logo">Adani</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <a href="placements.html"
+                        style="color: rgba(255,255,255,0.8); font-weight: 500; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.3); text-decoration: none; padding-bottom: 4px; transition: all 0.2s;">View
+                        Detailed Placement Report ➔</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- WALCHAND GLOBALLY : ALUMNI SHOWCASE -->
+    <section class="alumni-premium-section">
+        <div class="alumni-header-col">
+            <h2 class="alumni-title">Walchand Globally</h2>
+            <div class="alumni-subtitle">"Leaders Who Inspire, Innovate, and Transform the World"</div>
+            <p>From CEOs of multinational corporations to pioneers in diverse industries, our alumni exemplify the
+                spirit of innovation and excellence on the global stage. Here are some of our distinguished alumni
+                leading the way worldwide.</p>
+        </div>
+
+        <div class="alumni-horizontal-track">
+            <div class="alumni-marquee-content">
+                <!-- Card 1 -->
+                <div class="alumni-card">
+                    <img src="images/alumni4-leena-nair.jpg" alt="Leena Nair" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Leena Nair</h4>
+                        <span class="alumni-role">Global CEO, Chanel</span>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="alumni-card">
+                    <img src="images/alumni1-Alhad-Apte.png" alt="Alhad Apte" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Alhad Apte</h4>
+                        <span class="alumni-role">Ex Chief NTRO, Former Advisor to PM of India</span>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="alumni-card">
+                    <img src="images/alumni3-suumit-shah.jpg" alt="Suumit Shah" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Suumit Shah</h4>
+                        <span class="alumni-role">Co-founder and CEO of Dukaan</span>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="alumni-card">
+                    <img src="images/alumni3-Abhijeet-Pawar.jpeg" alt="Abhijeet Pawar" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Abhijeet Pawar</h4>
+                        <span class="alumni-role">Managing Director, Sakal Media Group</span>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="alumni-card">
+                    <img src="images/alumni2-Late-Subhash-Awale.jpg" alt="Late Subhash Awale" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Late Subhash Awale</h4>
+                        <span class="alumni-role">Architect of many IITs & AICTE</span>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="alumni-card">
+                    <img src="images/alumni6-Dr.-Sadanand-Joshi.png" alt="Dr. Sadanand Joshi" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Dr. Sadanand Joshi</h4>
+                        <span class="alumni-role">President, Joshi Technologies Int. (USA)</span>
+                    </div>
+                </div>
+                <!-- Card 7 -->
+                <div class="alumni-card">
+                    <img src="images/alumni7-BHASKAR-SAWANT.jpeg" alt="Bhaskar Sawant" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Shri. Bhaskar Sawant</h4>
+                        <span class="alumni-role">Secretary, Govt of Rajasthan (IAS)</span>
+                    </div>
+                </div>
+                <!-- Card 8 -->
+                <div class="alumni-card">
+                    <img src="images/alumni5-pradip-marathe.jpg" alt="Pradip Marathe" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Shri. Pradip Marathe</h4>
+                        <span class="alumni-role">Founder, Cotton King Pvt. Ltd.</span>
+                    </div>
+                </div>
+                <!-- Duplicated for Marquee -->
+                <!-- Card 1 -->
+                <div class="alumni-card">
+                    <img src="images/alumni4-leena-nair.jpg" alt="Leena Nair" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Leena Nair</h4>
+                        <span class="alumni-role">Global CEO, Chanel</span>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="alumni-card">
+                    <img src="images/alumni1-Alhad-Apte.png" alt="Alhad Apte" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Alhad Apte</h4>
+                        <span class="alumni-role">Ex Chief NTRO, Former Advisor to PM of India</span>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="alumni-card">
+                    <img src="images/alumni3-suumit-shah.jpg" alt="Suumit Shah" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Suumit Shah</h4>
+                        <span class="alumni-role">Co-founder and CEO of Dukaan</span>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="alumni-card">
+                    <img src="images/alumni3-Abhijeet-Pawar.jpeg" alt="Abhijeet Pawar" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Abhijeet Pawar</h4>
+                        <span class="alumni-role">Managing Director, Sakal Media Group</span>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="alumni-card">
+                    <img src="images/alumni2-Late-Subhash-Awale.jpg" alt="Late Subhash Awale" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Late Subhash Awale</h4>
+                        <span class="alumni-role">Architect of many IITs & AICTE</span>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="alumni-card">
+                    <img src="images/alumni6-Dr.-Sadanand-Joshi.png" alt="Dr. Sadanand Joshi" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Dr. Sadanand Joshi</h4>
+                        <span class="alumni-role">President, Joshi Technologies Int. (USA)</span>
+                    </div>
+                </div>
+                <!-- Card 7 -->
+                <div class="alumni-card">
+                    <img src="images/alumni7-BHASKAR-SAWANT.jpeg" alt="Bhaskar Sawant" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Shri. Bhaskar Sawant</h4>
+                        <span class="alumni-role">Secretary, Govt of Rajasthan (IAS)</span>
+                    </div>
+                </div>
+                <!-- Card 8 -->
+                <div class="alumni-card">
+                    <img src="images/alumni5-pradip-marathe.jpg" alt="Pradip Marathe" class="alumni-avatar-img">
+                    <div class="alumni-details">
+                        <h4>Shri. Pradip Marathe</h4>
+                        <span class="alumni-role">Founder, Cotton King Pvt. Ltd.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="page-wrap">
+        <div class="main-col">
+
+
+
+            <!-- STUNNING FULL WIDTH ABOUT SECTION -->
+            <div class="about-showcase">
+                <div class="about-text-side">
+                    <div
+                        style="color: var(--red); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 14px; margin-bottom: 12px;">
+                        Discover Our Campus</div>
+                    <h2 class="section-title"
+                        style="font-size: 42px; border: none; padding: 0; margin-bottom: 24px; font-weight: 700;">
+                        Welcome to Walchand College of Engineering</h2>
+                    <p style="font-size: 18px; color: var(--gray); line-height: 1.7; margin-bottom: 30px;">
+                        Situated in the heart of Sangli, WCE is one of the premier engineering institutions in
+                        Maharashtra.
+                        Established in 1947, WCE boasts a rich heritage of producing top-tier technological talent and
+                        driving cutting-edge research across 11 distinguished departments.
+                    </p>
+
+                </div>
+
+                <div class="about-image-side">
+                    <div class="professional-gallery">
+                        <div class="gallery-item top-span">
+                            <img src="images/academic-complex.webp" alt="Academic Complex">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="images/library-Building.webp" alt="WCE Library">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="images/it-dept-hut.webp" alt="IT Department">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATS BANNER -->
+            <div class="stats-banner" style="margin-bottom: 60px;">
+                <div class="stat-card">
+                    <div class="stat-icon">💎</div>
+                    <div class="stat-content">
+                        <div class="stat-num">250+ CEOs</div>
+                        <div class="stat-desc">Leading global organizations with vision and integrity.</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏵️</div>
+                    <div class="stat-content">
+                        <div class="stat-num">1,000+ Enterprise Founders</div>
+                        <div class="stat-desc">Innovating and building businesses across industries.</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-content">
+                        <div class="stat-num">30,000+ Alumni</div>
+                        <div class="stat-desc">Driving success and excellence worldwide.</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+    <button class="chatbot-fab" title="Chat with us">💬</button>
+
+    <footer class="modern-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-about">
+                    <img src="images/wce-logo.png" alt="WCE Logo" class="footer-logo">
+                    <div class="footer-brand-text">
+                        <h3>Walchand College of Engineering</h3>
+                        <p class="institute-type">A Government-Aided Autonomous Institute · Estd. 1947</p>
+                    </div>
+                    <p class="about-description">Producing top-tier technological talent and driving cutting-edge
+                        research for over 75 years. Affiliated to Shivaji University, Kolhapur.</p>
+                </div>
+
+                <div class="footer-links-grid">
+                    <div class="footer-column">
+                        <h4>Academics</h4>
+                        <ul>
+                            <li><a href="admissions.html">B.Tech Admissions</a></li>
+                            <li><a href="admissions.html">Postgraduate M.Tech</a></li>
+                            <li><a href="admissions.html">Research & PhD</a></li>
+                            <li><a href="admissions.html">Diploma Courses</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Campus Life</h4>
+                        <ul>
+                            <li><a href="campus-life.html">Campus Infrastructure</a></li>
+                            <li><a href="campus-life.html">Student Hostels</a></li>
+                            <li><a href="campus-life.html">Library Facilities</a></li>
+                            <li><a href="campus-life.html">Virtual Campus Tour</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact Us</h4>
+                        <div class="contact-info">
+                            <p>📍 Vishrambag, Sangli - 416415, MH</p>
+                            <p>📞 <a href="tel:+912332300383">+91 233 2300383</a></p>
+                            <p>✉️ <a href="mailto:info@walchandsangli.ac.in">info@walchandsangli.ac.in</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <div class="copyright">© 2025 atharva pednekar. All Rights Reserved.</div>
+                <div class="visitor-counter"
+                    style="color: var(--text-secondary); font-size: 13px; display: flex; align-items: center; gap: 8px;">
+                    <span
+                        style="background: var(--red); color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 10px;">LIVE</span>
+                    👁️ Visitor Count: <span style="color: var(--text-primary); font-weight: 600;">1,24,567</span>
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">RTI</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="search.js"></script>
+
+</body>
+
+</html>

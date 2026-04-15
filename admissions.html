@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions | Walchand College of Engineering</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="theme.js"></script>
+    <script src="translate.js" defer></script>
+    <style>
+        /* Specific Admissions Styles to enhance the "WOW" factor */
+        .admission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .admission-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .admission-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--red);
+        }
+
+        .admission-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, transparent 50%, rgba(192, 57, 43, 0.05) 50%);
+            border-radius: 0 0 0 100%;
+        }
+
+        .admission-card h3 {
+            font-family: 'EB Garamond', serif;
+            font-size: 24px;
+            color: var(--red-dark);
+            margin-bottom: 8px;
+        }
+
+        .admission-card p {
+            font-size: 14.5px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .admission-links {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .admission-links li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admission-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .admission-links a:hover {
+            color: var(--red);
+        }
+
+        .icon-circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--red);
+            flex-shrink: 0;
+        }
+
+        .special-section {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-subtle);
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .special-section {
+            background: #0a0a0a;
+        }
+
+        .special-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(192, 57, 43, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .notification-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .notif-item {
+            padding: 18px;
+            background: var(--bg-main);
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .notif-item:hover {
+            border-color: var(--red);
+            background: var(--bg-card);
+            transform: scale(1.01);
+        }
+
+        .notif-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .notif-content span {
+            font-size: 12px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-view {
+            padding: 8px 16px;
+            border-radius: 50px;
+            background: var(--red-light);
+            color: var(--red-dark);
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        [data-theme="dark"] .btn-view {
+            background: #450a0a;
+            color: #ff9999;
+            border: 1px solid #8e1c0f;
+        }
+
+        .btn-view:hover {
+            background: var(--red);
+            color: white;
+        }
+
+        .timing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .timing-card {
+            padding: 20px;
+            background: var(--bg-card);
+            border-radius: 15px;
+            border: 1px solid var(--border-subtle);
+            text-align: center;
+        }
+
+        .timing-card strong {
+            display: block;
+            font-size: 16px;
+            color: var(--red);
+            margin-bottom: 5px;
+        }
+
+        .timing-card span {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 10px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-item .val {
+            display: block;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .stat-item .lbl {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-wrap">
+            <a href="home.html">
+                <img src="images/wce-logo.png" alt="WCE Logo" style="border-radius: 50%;">
+            </a>
+        </div>
+        <div class="header-text">
+            <div class="est" >Established 1947</div>
+            <a href="home.html" style="text-decoration: none; color: inherit; display: inline-block;">
+                <h1>Walchand College of Engineering</h1>
+            </a>
+            <div class="subtitle"  style="font-size: 15px; letter-spacing: 0.5px; font-weight: 600; color: var(--red); margin-top: 5px;">
+                Government-Aided Autonomous Institute · Professional Excellence for 75+ Years
+            </div>
+            <div class="header-badges">
+                <span class="badge" >NAAC A+ Grade</span>
+                <span class="badge" >NBA Accredited</span>
+                <span class="badge" >NIRF Ranked</span>
+                <span class="badge" >AICTE Approved</span>
+                <span class="badge" >UGC Autonomous</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-options-grid">
+                <a href="https://walchandsangli.ac.in/campus-life/online-platforms/" target="_blank" class="header-grid-item" >Online Services</a>
+                <a href="https://walchandsangli.ac.in/communication/" target="_blank" class="header-grid-item" >Communication</a>
+                <a href="http://alumni.walchandsangli.ac.in" target="_blank" class="header-grid-item" >Alumni Portal</a>
+                <a href="https://walchandsangli.ac.in/campus-life/online-platforms/" target="_blank" class="header-grid-item" >🔗 Portals</a>
+                <a href="https://walchandsangli.ac.in/admissions/first-year-btech/" target="_blank" class="header-grid-item" >📋 Admissions</a>
+                <button class="header-grid-item"  title="Quick Search">🔍 Search</button>
+                <button class="header-grid-item"  title="Toggle Dark Mode">🌓 Theme</button>
+                <select class="header-grid-item lang-select" title="Language Switch" style="background: var(--bg-main); border: 1px solid var(--border-subtle); color: var(--text-primary); cursor: pointer;">
+                    <option value="en">🌐 English</option>
+                    <option value="hi">🌐 Hindi</option>
+                    <option value="mr">🌐 मराठी</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    <div id="google_translate_hidden_element"></div>
+    <div id="google_translate_element_hidden" style="display:none;"></div>
+
+    <nav>
+        <a href="home.html" >Home</a>
+        <a href="about.html" >About Us</a>
+        <a href="academics.html" >Academics</a>
+        <a href="admissions.html" class="active" >Admissions</a>
+        <a href="placements.html" >Placements</a>
+        <a href="campus-life.html" >Campus Life</a>
+        <a href="research.html" >Research</a>
+        <a href="clubs.html" >Clubs</a>
+        <a href="contact.html" >Contact Us</a>
+        <a href="notices.html" >Notices</a>
+    </nav>
+
+    <!-- ADMISSIONS HERO -->
+    <div class="page-hero">
+        <div class="bg"
+            style="background-image: linear-gradient(135deg, rgba(142,28,15,0.9) 0%, rgba(0,0,0,0.85) 70%), url('images/academic-complex.webp'); background-size: cover; background-position: center;">
+        </div>
+        <div class="hero-inner">
+            <div class="breadcrumb"><a href="home.html" >Home</a> › Admissions</div>
+            <h2>Shape Your Future at WCE</h2>
+            <p>Join a legacy of excellence spanning over 75 years. Explore our undergraduate, postgraduate, and specialized programs designed for the innovators of tomorrow.</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="val">10+</span>
+                    <span class="lbl">B.Tech Depts</span>
+                </div>
+                <div class="stat-item">
+                    <span class="val">8+</span>
+                    <span class="lbl">M.Tech Specializations</span>
+                </div>
+                <div class="stat-item">
+                    <span class="val">75+</span>
+                    <span class="lbl">Years Legacy</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-wrap has-sidebar">
+        <div class="main-col">
+
+            <!-- ADMISSION STREAMS -->
+            <div class="section-title">Academic Admission Streams</div>
+            <div class="admission-grid">
+                <!-- Under Graduate -->
+                <div class="admission-card">
+                    <h3>Undergraduate (B.Tech)</h3>
+                    <p>Merit-based admissions via MHT-CET and JEE Main for aspiring engineers.</p>
+                    <ul class="admission-links">
+                        <li><div class="icon-circle"></div><a href="https://walchandsangli.ac.in/admissions/first-year-btech/">First Year B.Tech (General)</a></li>
+                        <li><div class="icon-circle"></div><a href="https://walchandsangli.ac.in/admissions/first-year-of-btech-pio-oci-fn-ciwg-nri-students/">B.Tech (PIO/OCI/FN/NRI)</a></li>
+                        <li><div class="icon-circle"></div><a href="https://walchandsangli.ac.in/admissions/direct-second-year-b-tech/">Direct Second Year B.Tech</a></li>
+                    </ul>
+                </div>
+
+                <!-- Post Graduate -->
+                <div class="admission-card">
+                    <h3>Postgraduate (M.Tech)</h3>
+                    <p>Advanced research and specialization programs based on valid GATE scores.</p>
+                    <ul class="admission-links">
+                        <li><div class="icon-circle"></div><a href="https://walchandsangli.ac.in/post-graduate/m-tech/">M.Tech Admissions Overview</a></li>
+                        <li><div class="icon-circle"></div><a href="https://walchandsangli.ac.in/admissions/phd/">PhD Programs</a></li>
+                        <li><div class="icon-circle"></div><a href="https://walchandsangli.ac.in/admissions/certificate-courses/">Certificate Courses</a></li>
+                    </ul>
+                </div>
+
+                <!-- Diploma -->
+                <div class="admission-card">
+                    <h3>Diploma Wing</h3>
+                    <p>Quality technical education through polytechnic programs across various disciplines.</p>
+                    <ul class="admission-links">
+                        <li><div class="icon-circle"></div><a href="https://walchandsangli.ac.in/diploma/first-year/">First Year Diploma</a></li>
+                        <li><div class="icon-circle"></div><a href="https://walchandsangli.ac.in/diploma/direct-second-year/">Direct Second Year Diploma</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- WORKING PROFESSIONALS SECTION -->
+            <div class="special-section">
+                <div class="section-title">B.Tech & M.Tech for Working Professionals</div>
+                <p style="margin-bottom: 24px; color: var(--text-secondary); line-height: 1.6;">
+                    WCE is authorized by AICTE and Shivaji University to offer specialized programs allowing professionals to pursue higher education while maintaining their careers.
+                </p>
+                <div class="timing-grid">
+                    <div class="timing-card">
+                        <strong>Weekdays (M-F)</strong>
+                        <span>2+ Hours Engagement<br>(Online/VC Mode)</span>
+                    </div>
+                    <div class="timing-card">
+                        <strong>Weekends (Sat-Sun)</strong>
+                        <span>8-14 Hours Practical/Lab<br>(Mandatory Offline Mode)</span>
+                    </div>
+                    <div class="timing-card">
+                        <strong>Eligibility</strong>
+                        <span>1+ Year Regular Experience<br>(Within 50km radius)</span>
+                    </div>
+                </div>
+                <div style="margin-top: 30px; display: flex; gap: 15px;">
+                    <a href="https://walchandsangli.ac.in/admissions/ug-pg-for-working-professionals/" class="btn-view" style="padding: 12px 24px;">View Full Guidelines</a>
+                    <a href="https://cetcell.mahacet.org/" target="_blank" class="btn-view" style="padding: 12px 24px; background: var(--border-subtle); color: var(--text-primary);">CET Cell Portal</a>
+                </div>
+            </div>
+
+            <!-- NOTIFICATIONS & FEES -->
+            <div class="section-title">Admissions 2025-26: Notifications & Fees</div>
+            <div class="notification-list">
+                <div class="notif-item">
+                    <div class="notif-content">
+                        <h4>Admission Activity Schedule</h4>
+                        <span>AY 2025-26 • Institutional Level</span>
+                    </div>
+                    <a href="https://fe2025.mahacet.org/StaticPages/HomePage" target="_blank" class="btn-view">Check Dates</a>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-content">
+                        <h4>Fee Proposal A.Y. 2026-27</h4>
+                        <span>Draft Proposal for Authorities</span>
+                    </div>
+                    <a href="https://walchandsangli.ac.in/wp-content/uploads/WCE-Online-Fee-Approval-Proposal-for-Academic-Year-2026-27.pdf" target="_blank" class="btn-view">Download PDF</a>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-content">
+                        <h4>Fee Structure: FY B.Tech (Aided)</h4>
+                        <span>Finalized for 2025-26</span>
+                    </div>
+                    <a href="https://walchandsangli.ac.in/wp-content/uploads/First-Year-B.Tech_.-Fee-Structure-Aided-2025_26-1.pdf" target="_blank" class="btn-view">View Fee</a>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-content">
+                        <h4>ERP Registration Process</h4>
+                        <span>Student Guide for CAP Allotment</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1gGONgr1NY-OqQJqG35u_xnB3w9kMQB3d/view?usp=sharing" target="_blank" class="btn-view">Watch Guide</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="sidebar-card">
+                <div class="section-title" style="font-size:17px; border-left: 3px solid var(--red);">Quick Actions</div>
+                <div class="sidebar-links">
+                    <a href="https://walchandsangli.ac.in/admissions/institute-level-notifications/">Institute Notifications</a>
+                    <a href="https://walchandsangli.ac.in/admissions/fees-as-per-authorities-dte-fra/">Fee Structure Details</a>
+                    <a href="https://cetcell.mahacet.org/" target="_blank">MAH-CET Portal</a>
+                    <a href="contact.html">Admission Helpline</a>
+                </div>
+            </div>
+
+            <div class="sidebar-card" style="background: var(--red-light); border: none;">
+                <div class="section-title" style="font-size:17px; border-left: 3px solid var(--red); color: var(--red-dark);">Contact Admissions</div>
+                <p style="font-size: 13px; color: var(--red-dark); line-height: 1.5; margin-bottom: 15px;">
+                    For queries regarding CAP rounds, merit lists, and document verification.
+                </p>
+                <div style="font-size: 14px; color: var(--text-primary);">
+                    <p>📞 <strong>+91 233 2300383</strong></p>
+                    <p>✉️ <a href="mailto:info@walchandsangli.ac.in" style="color: var(--red);">info@walchandsangli.ac.in</a></p>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="section-title" style="font-size:17px;">Admission Links</div>
+                <div class="accred-badges">
+                    <span class="badge">CAP 2025</span>
+                    <span class="badge">DTE Code: 6007</span>
+                    <span class="badge">FRA</span>
+                    <span class="badge">ARC</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="chatbot-fab" title="Chat with us">💬</button>
+
+    <footer class="modern-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-about">
+                    <img src="images/wce-logo.png" alt="WCE Logo"
+                        class="footer-logo">
+                    <div class="footer-brand-text">
+                        <h3 >Walchand College of Engineering</h3>
+                        <p class="institute-type" >A Government-Aided Autonomous Institute · Estd. 1947</p>
+                    </div>
+                    <p class="about-description" >Producing top-tier technological talent and driving cutting-edge
+                        research for over 75 years. Affiliated to Shivaji University, Kolhapur.</p>
+                </div>
+
+                <div class="footer-links-grid">
+                    <div class="footer-column">
+                        <h4 >Academics</h4>
+                        <ul>
+                            <li><a href="admissions.html" >B.Tech Admissions</a></li>
+                            <li><a href="admissions.html" >Postgraduate M.Tech</a></li>
+                            <li><a href="admissions.html">Research & PhD</a></li>
+                            <li><a href="admissions.html" >Diploma Courses</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 >Campus Life</h4>
+                        <ul>
+                            <li><a href="campus-life.html" >Campus Infrastructure</a></li>
+                            <li><a href="campus-life.html" >Student Hostels</a></li>
+                            <li><a href="campus-life.html" >Library Facilities</a></li>
+                            <li><a href="campus-life.html" >Virtual Campus Tour</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 >Contact Us</h4>
+                        <div class="contact-info">
+                            <p >📍 Vishrambag, Sangli - 416415, MH</p>
+                            <p>📞 <a href="tel:+912332300383">+91 233 2300383</a></p>
+                            <p>✉️ <a href="mailto:info@walchandsangli.ac.in">info@walchandsangli.ac.in</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <div class="copyright">© 2025 AI-WCE Project. All Rights Reserved.</div>
+                <div class="footer-legal">
+                    <a href="#" >Privacy Policy</a>
+                    <a href="#" >Terms of Use</a>
+                    <a href="#" >RTI</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="search.js"></script>
+</body>
+
+</html>
