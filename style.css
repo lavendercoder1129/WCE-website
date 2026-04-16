@@ -1756,3 +1756,466 @@ select.header-grid-item {
 [data-theme="dark"] .sidebar-card[style*="background: var(--red-light)"] strong {
     color: #ffffff !important;
 }
+
+/* FIND STUDENTS LIKE YOU SECTION */
+.usp-section {
+    padding: 60px 40px 20px 40px;
+    background: var(--bg-main);
+}
+
+.usp-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.usp-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 48px;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.usp-subtitle {
+    font-size: 20px;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.search-form-wrap {
+    background: var(--bg-card);
+    padding: 30px 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+    border: 1px solid var(--border-subtle);
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 10;
+}
+
+.match-form {
+    display: flex;
+    gap: 24px;
+    align-items: flex-end;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-select, .form-input {
+    padding: 16px 20px;
+    border-radius: 14px;
+    border: 1.5px solid var(--border-subtle);
+    background: var(--bg-main);
+    color: var(--text-primary);
+    font-size: 16px;
+    font-family: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-select:focus, .form-input:focus {
+    outline: none;
+    border-color: var(--red);
+    box-shadow: 0 0 0 4px rgba(192, 57, 43, 0.1);
+    transform: translateY(-2px);
+}
+
+.find-btn {
+    padding: 16px 40px;
+    background: var(--red);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 56px;
+    white-space: nowrap;
+}
+
+.find-btn:hover {
+    background: var(--red-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(192, 57, 43, 0.3);
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 35px;
+    margin-bottom: 30px;
+}
+
+.placeholder-text {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 20px;
+    font-size: 15px;
+    font-style: italic;
+    background: rgba(0,0,0,0.02);
+    border-radius: 20px;
+    border: 2px dashed var(--border-subtle);
+}
+
+.student-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 22px;
+    padding: 30px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    border: 1px solid var(--border-subtle);
+}
+
+.student-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    border-color: var(--red);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.avatar-initials {
+    width: 52px;
+    height: 52px;
+    background: var(--red-light);
+    color: var(--red);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 20px;
+    box-shadow: 0 5px 15px rgba(192, 57, 43, 0.1);
+}
+
+.student-type-tag {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    background: var(--light-gray);
+    color: var(--text-secondary);
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+}
+
+.card-body h4 {
+    font-size: 22px;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+    font-family: 'EB Garamond', serif;
+    font-weight: 700;
+}
+
+.card-body .branch-year {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--red);
+    margin-bottom: 15px;
+}
+
+.card-body .location {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-body .bio {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+}
+
+.view-insights-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--bg-main);
+    color: var(--text-primary);
+    border: 1.5px solid var(--border-subtle);
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-insights-btn:hover {
+    background: var(--red);
+    color: #fff;
+    border-color: var(--red);
+    transform: scale(1.02);
+}
+
+.insights-summary {
+    background: var(--red-light);
+    padding: 30px 45px;
+    border-radius: 24px;
+    border-left: 6px solid var(--red);
+    animation: slideInUp 0.6s ease-out;
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.summary-header h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 28px;
+    color: var(--red-dark);
+}
+
+.summary-pills {
+    display: flex;
+    gap: 20px;
+}
+
+.summary-pill {
+    background: var(--bg-card);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+}
+
+.summary-pill .label {
+    color: var(--text-secondary);
+    margin-right: 8px;
+    font-weight: 500;
+}
+
+.summary-pill .value {
+    font-weight: 800;
+    color: var(--red);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    width: 95%;
+    max-width: 650px;
+    border-radius: 30px;
+    padding: 50px;
+    position: relative;
+    transform: scale(0.9) translateY(40px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 30px 100px rgba(0,0,0,0.5);
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.close-modal {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    background: var(--bg-main);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background: var(--red);
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.student-profile-large {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.student-initials {
+    width: 85px;
+    height: 85px;
+    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    color: #fff;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    font-weight: 800;
+    box-shadow: 0 10px 30px rgba(192, 57, 43, 0.3);
+}
+
+.student-meta h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 34px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.student-meta p {
+    color: var(--red);
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.insight-row {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: var(--bg-main);
+    border-radius: 20px;
+    border: 1px solid var(--border-subtle);
+    transition: all 0.3s ease;
+}
+
+.insight-row:hover {
+    border-color: var(--red);
+    transform: scale(1.02);
+}
+
+.insight-icon {
+    font-size: 28px;
+}
+
+.insight-text h4 {
+    font-size: 13px;
+    color: var(--red);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+}
+
+.insight-text p {
+    font-size: 15px;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+    .match-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+}
+
+[data-theme="dark"] .placeholder-text {
+    background: rgba(255,255,255,0.02);
+}
+
+[data-theme="dark"] .student-card:hover {
+    box-shadow: 0 20px 50px rgba(255,255,255,0.05);
+}
+
+[data-theme="dark"] .summary-pill {
+    background: #1a1a1a;
+}
+
+.connect-btn-premium {
+    margin-left: auto;
+    padding: 12px 24px;
+    background: #0077b5;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 119, 181, 0.2);
+}
+
+.connect-btn-premium:hover {
+    background: #005a87;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 119, 181, 0.3);
+    color: #fff;
+}
+
+/* Adjust modal header for the button */
+.modal-header .student-profile-large {
+    width: 100%;
+    justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+    .modal-header .student-profile-large {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .connect-btn-premium {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+}
