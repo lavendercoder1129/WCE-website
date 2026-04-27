@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Navigator - Walchand College of Engineering</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=EB+Garamond:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="header-grid">
+                <div class="header-grid-item">
+                    <img src="images/wce-logo.png" alt="WCE Logo" class="header-logo">
+                </div>
+                <div class="header-grid-item text-center">
+                    <h1 class="header-title">Walchand College of Engineering, Sangli</h1>
+                    <p class="header-subtitle">(A Govt. Aided Autonomous Institute)</p>
+                </div>
+                <select class="header-grid-item lang-select" title="Language Switch"
+                    style="background: var(--bg-main); border: 1px solid var(--border-subtle); color: var(--text-primary); cursor: pointer;">
+                    <option value="en">🌐 English</option>
+                    <option value="hi">🌐 Hindi</option>
+                    <option value="mr">🌐 Marathi</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="academics.html">Academics</a>
+        <a href="admissions.html">Admissions</a>
+        <a href="placements.html">Placements</a>
+        <a href="campus-life.html">Campus Life</a>
+        <a href="research.html">Research</a>
+        <a href="clubs.html">Clubs</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="notices.html">Notices</a>
+        <a href="student-navigator.html" class="active">Student Navigator</a>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero" style="min-height: 300px; height: auto; align-items: center; justify-content: center; padding-top: 40px; padding-bottom: 40px;">
+        <div class="bg" style="background-image: linear-gradient(135deg, rgba(142,28,15,0.88) 0%, rgba(26,26,26,0.98) 100%), url('images/Entrance Gate.webp'); background-size: cover; background-position: center;"></div>
+        <div class="pattern" style="opacity: 0.6;"></div>
+        <div class="hero-inner" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 40px; text-align: center; position: relative; z-index: 2;">
+            <h1 style="font-family: 'EB Garamond', serif; font-size: 48px; color: #fff; margin-bottom: 15px; font-weight: 800;">Find Students Like You</h1>
+            <p style="font-size: 18px; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                The most advanced peer-to-peer connection platform for prospective WCE students. Get real insights directly from current students.
+            </p>
+        </div>
+    </div>
+
+    <!-- STUDENT NAVIGATOR SECTION -->
+    <section id="find-students" class="usp-section" style="padding: 80px 0;">
+        <div class="section-container">
+            <div class="usp-header">
+                <h2 class="usp-title">Student Navigator</h2>
+                <p class="usp-subtitle">Connect with students from similar backgrounds and make informed decisions about your future at WCE.</p>
+            </div>
+
+            <!-- Search Form -->
+            <div class="search-form-wrap">
+                <form id="student-match-form" class="match-form">
+                    <div class="form-group">
+                        <label for="branch-filter">Branch</label>
+                        <select id="branch-filter" class="form-select">
+                            <option value="">All Branches</option>
+                            <option value="CSE">Computer Science (CSE)</option>
+                            <option value="IT">Information Technology (IT)</option>
+                            <option value="AI/ML">AI & Machine Learning</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Civil">Civil</option>
+                            <option value="Mechanical">Mechanical</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="city-filter">City</label>
+                        <input type="text" id="city-filter" class="form-input" placeholder="e.g. Pune, Sangli">
+                    </div>
+                    <div class="form-group">
+                        <label for="type-filter">Hostel / Day Scholar</label>
+                        <select id="type-filter" class="form-select">
+                            <option value="">Any</option>
+                            <option value="Hosteller">Hosteller</option>
+                            <option value="Day Scholar">Day Scholar</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="find-btn">Find Matches</button>
+                </form>
+            </div>
+
+            <div id="results-area" class="results-grid">
+                <!-- Dynamic Results Show Here -->
+                <div class="placeholder-text">
+                    <p>Enter your details above to find students with similar backgrounds.</p>
+                </div>
+            </div>
+
+            <div id="summary-section" class="insights-summary" style="display: none;">
+                <div class="summary-header">
+                    <h3>Insights from similar students</h3>
+                    <div class="summary-pills">
+                        <div class="summary-pill">
+                            <span class="label">Placements:</span>
+                            <span id="summary-placements" class="value">Good</span>
+                        </div>
+                        <div class="summary-pill">
+                            <span class="label">Academics:</span>
+                            <span id="summary-academics" class="value">Moderate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Modal -->
+    <div id="insights-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close Modal">&times;</button>
+            <div class="modal-header">
+                <div class="student-profile-large">
+                    <div class="student-initials" id="modal-initials">SA</div>
+                    <div class="student-meta">
+                        <h3 id="modal-name">Student A</h3>
+                        <p id="modal-subtext">CSE · 3rd Year · Pune</p>
+                    </div>
+                </div>
+                <a href="#" id="modal-connect" target="_blank" class="connect-btn-premium">Connect on LinkedIn</a>
+            </div>
+            <div class="modal-body">
+                <div class="insight-row">
+                    <div class="insight-icon">💼</div>
+                    <div class="insight-text">
+                        <h4>Placements</h4>
+                        <p id="modal-placements">Loading...</p>
+                    </div>
+                </div>
+                <div class="insight-row">
+                    <div class="insight-icon">📚</div>
+                    <div class="insight-text">
+                        <h4>Academics</h4>
+                        <p id="modal-academics">Loading...</p>
+                    </div>
+                </div>
+                <div class="insight-row">
+                    <div class="insight-icon">🏠</div>
+                    <div class="insight-text">
+                        <h4>Hostel Life</h4>
+                        <p id="modal-hostel">Loading...</p>
+                    </div>
+                </div>
+                <div class="insight-row">
+                    <div class="insight-icon">🎯</div>
+                    <div class="insight-text">
+                        <h4>Internships</h4>
+                        <p id="modal-internships">Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="modern-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-about">
+                    <img src="images/wce-logo.png" alt="WCE Logo" class="footer-logo">
+                    <div class="footer-brand-text">
+                        <h3>Walchand College of Engineering</h3>
+                        <p class="institute-type">A Government-Aided Autonomous Institute · Estd. 1947</p>
+                    </div>
+                    <p class="about-description">Producing top-tier technological talent and driving cutting-edge research for over 75 years. Affiliated to Shivaji University, Kolhapur.</p>
+                </div>
+
+                <div class="footer-links-grid">
+                    <div class="footer-column">
+                        <h4>Academics</h4>
+                        <ul>
+                            <li><a href="admissions.html">B.Tech Admissions</a></li>
+                            <li><a href="admissions.html">Postgraduate M.Tech</a></li>
+                            <li><a href="admissions.html">Research & PhD</a></li>
+                            <li><a href="admissions.html">Diploma Courses</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Campus Life</h4>
+                        <ul>
+                            <li><a href="campus-life.html">Campus Infrastructure</a></li>
+                            <li><a href="campus-life.html">Student Hostels</a></li>
+                            <li><a href="campus-life.html">Library Facilities</a></li>
+                            <li><a href="campus-life.html">Virtual Campus Tour</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact Us</h4>
+                        <div class="contact-info">
+                            <p>📍 Vishrambag, Sangli - 416415, MH</p>
+                            <p>📞 <a href="tel:+912332300383">+91 233 2300383</a></p>
+                            <p>✉️ <a href="mailto:info@walchandsangli.ac.in">info@walchandsangli.ac.in</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <div class="copyright">© 2025 atharva pednekar. All Rights Reserved.</div>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">RTI</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mock Student Data
+            const students = [
+                {
+                    id: 1,
+                    name: "Rahul Sharma",
+                    initials: "RS",
+                    branch: "CSE",
+                    year: "3rd Year",
+                    city: "Pune",
+                    type: "Hosteller",
+                    linkedIn: "https://linkedin.com/in/rahul-wce",
+                    bio: "Focusing on Cloud Computing and AI. Founder of WCE Coding Club. Love the competitive environment here.",
+                    insights: {
+                        placements: "Tier-1 companies like Microsoft & NVIDIA visit campus. Average package for CSE is around 14 LPA. The T&P cell is very active.",
+                        academics: "The credit-based system is excellent. Highly recommend maintaining a 8.0+ CPI for premium recruiters.",
+                        hostel: "Newly renovated block (D-Block) has great facilities. Mess food is decent, and the network is very stable for late-night coding.",
+                        internships: "Did a 2-month summer internship at a unicorn startup. Direct referrals from seniors are common here."
+                    }
+                },
+                {
+                    id: 2,
+                    name: "Sneha Patil",
+                    initials: "SP",
+                    branch: "IT",
+                    year: "2nd Year",
+                    city: "Sangli",
+                    type: "Day Scholar",
+                    linkedIn: "https://linkedin.com/in/sneha-wce",
+                    bio: "Full Stack Developer. Part of the WCE Web Team. Interested in Fintech and UI/UX design.",
+                    insights: {
+                        placements: "IT & CSE placements are almost integrated. Many big product firms allow IT students for all roles.",
+                        academics: "Curriculum is updated with latest industry trends like React, Node.js and AWS Cloud. Practical labs are top-notch.",
+                        hostel: "As a day scholar, I spend most time in the Central Library. It's a goldmine for resources.",
+                        internships: "Participated in 3 hackathons. WCE's name definitely gives an edge in off-campus applications."
+                    }
+                },
+                {
+                    id: 3,
+                    name: "Aditya Verma",
+                    initials: "AV",
+                    branch: "AI/ML",
+                    year: "4th Year",
+                    city: "Mumbai",
+                    type: "Hosteller",
+                    linkedIn: "https://linkedin.com/in/aditya-wce",
+                    bio: "Data Science enthusiast. Working on NLP research papers. Always found in the AI research lab.",
+                    insights: {
+                        placements: "AI/ML is the rising star. 100% placement rate for our senior batch with multiple overseas offers.",
+                        academics: "Intense but exciting. Labs are equipped with high-end GPU servers for deep learning projects.",
+                        hostel: "Hostel life is the best part of WCE. Peer-to-peer learning happens over midnight snacks at the canteen.",
+                        internships: "Currently interning as a Data Scientist at a major tech firm in Bangalore, found through campus portal."
+                    }
+                },
+                {
+                    id: 4,
+                    name: "Priya Kulkarni",
+                    initials: "PK",
+                    branch: "Electronics",
+                    year: "3rd Year",
+                    city: "Pune",
+                    type: "Hosteller",
+                    linkedIn: "https://linkedin.com/in/priya-wce",
+                    bio: "Robotics and VLSI expert. Core member of WCE Robocon team. Passionate about hardware-software integration.",
+                    insights: {
+                        placements: "Core giants like Texas Instruments & John Deere are regular recruiters. Good mix of core and IT options.",
+                        academics: "Heavy focus on hands-on practicals. Professors are approachable and help with project funding.",
+                        hostel: "Cyber hostel has a very studious vibe. Perfect for focusing on gated exams or research.",
+                        internships: "Summer internship at an embedded systems firm was fully supported by the department."
+                    }
+                },
+                {
+                    id: 5,
+                    name: "Vikram Deshmukh",
+                    initials: "VD",
+                    branch: "Mechanical",
+                    year: "4th Year",
+                    city: "Nashik",
+                    type: "Hosteller",
+                    linkedIn: "https://linkedin.com/in/vikram-wce",
+                    bio: "Automotive engineering enthusiast. Lead designer for WCE BAJA team. Love for machines starts here.",
+                    insights: {
+                        placements: "Placements in manufacturing (Tata Motors, Mercedes) are strong. Many students also pivot to roles in Data Analytics.",
+                        academics: "Workshop culture is legendary at WCE. You get to work on real engines and CNC machines.",
+                        hostel: "Met my future co-founders in the hostel. The networking here is unbeatable.",
+                        internships: "Did a 6-month vocational training at a major auto hub, which was credited as part of the curriculum."
+                    }
+                }
+            ];
+
+            const form = document.getElementById('student-match-form');
+            const resultsContainer = document.getElementById('results-area');
+            const summarySection = document.getElementById('summary-section');
+            const modal = document.getElementById('insights-modal');
+            const closeModal = document.querySelector('.close-modal');
+
+            // Filter Logic
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const branchVal = document.getElementById('branch-filter').value;
+                const cityVal = document.getElementById('city-filter').value.toLowerCase();
+                const typeVal = document.getElementById('type-filter').value;
+
+                const matches = students.filter(s => {
+                    const branchMatch = !branchVal || s.branch === branchVal;
+                    const cityMatch = !cityVal || s.city.toLowerCase().includes(cityVal);
+                    const typeMatch = !typeVal || s.type === typeVal;
+                    return branchMatch && cityMatch && typeMatch;
+                });
+
+                renderMatches(matches);
+            });
+
+            function renderMatches(matches) {
+                resultsContainer.innerHTML = '';
+
+                if (matches.length === 0) {
+                    resultsContainer.innerHTML = `
+                        <div class="placeholder-text">
+                            <p>No exact matches found for your criteria.</p>
+                            <small>Try broadening your filters to see more students.</small>
+                        </div>
+                    `;
+                    summarySection.style.display = 'none';
+                    return;
+                }
+
+                matches.forEach(student => {
+                    const card = document.createElement('div');
+                    card.className = 'student-card';
+                    card.innerHTML = `
+                        <div class="card-header">
+                            <div class="avatar-initials">${student.initials}</div>
+                            <span class="student-type-tag">${student.type}</span>
+                        </div>
+                        <div class="card-body">
+                            <h4>${student.name}</h4>
+                            <p class="branch-year">${student.branch} · ${student.year}</p>
+                            <p class="location">📍 ${student.city}</p>
+                            <p class="bio">${student.bio}</p>
+                            <button class="view-insights-btn" data-id="${student.id}">View Full Insights</button>
+                        </div>
+                    `;
+                    resultsContainer.appendChild(card);
+                });
+
+                // Update Summary (Dynamic Insights)
+                summarySection.style.display = 'block';
+                if (matches.length > 0) {
+                    document.getElementById('summary-placements').textContent = matches.length > 1 ? "Prospective" : "Strong";
+                    document.getElementById('summary-academics').textContent = "Excellent";
+                }
+
+                // Add event listeners to new buttons
+                document.querySelectorAll('.view-insights-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = btn.getAttribute('data-id');
+                        const student = students.find(s => s.id == id);
+                        showModal(student);
+                    });
+                });
+
+                // Scroll to results
+                resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            function showModal(student) {
+                document.getElementById('modal-name').textContent = student.name;
+                document.getElementById('modal-initials').textContent = student.initials;
+                document.getElementById('modal-subtext').textContent = `${student.branch} · ${student.year} · ${student.city}`;
+                document.getElementById('modal-placements').textContent = student.insights.placements;
+                document.getElementById('modal-academics').textContent = student.insights.academics;
+                document.getElementById('modal-hostel').textContent = student.insights.hostel;
+                document.getElementById('modal-internships').textContent = student.insights.internships;
+
+                // Update Connect Button
+                const connectBtn = document.getElementById('modal-connect');
+                if (connectBtn) {
+                    connectBtn.href = student.linkedIn;
+                }
+
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scroll
+            }
+
+            closeModal.addEventListener('click', () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Close modal on outside click
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Keyboard support - Escape key to close modal
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
