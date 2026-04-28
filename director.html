@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Director's Message – WCE Sangli</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="theme.js"></script>
+    <script src="translate.js" defer></script>
+    <style>
+        .director-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 120px 40px 80px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            border-radius: 0 0 50px 50px;
+            margin-bottom: 60px;
+        }
+
+        .director-img-wrap {
+            flex: 0 0 400px;
+            position: relative;
+        }
+
+        .director-img-wrap img {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .director-img-wrap::after {
+            content: '';
+            position: absolute;
+            inset: -15px;
+            border: 2px solid var(--red);
+            border-radius: 40px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .director-intro h1 {
+            font-family: 'EB Garamond', serif;
+            font-size: 56px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .director-intro .title {
+            color: var(--red);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .director-intro p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            max-width: 700px;
+        }
+
+        .message-content {
+            max-width: 1000px;
+            margin: 0 auto 100px;
+            background: var(--bg-card);
+            padding: 60px;
+            border-radius: 40px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .message-content::before {
+            content: '“';
+            position: absolute;
+            top: -20px;
+            left: 40px;
+            font-size: 120px;
+            font-family: 'EB Garamond', serif;
+            color: var(--red);
+            opacity: 0.2;
+        }
+
+        .message-content p {
+            font-size: 19px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        .vision-blocks {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .vision-card {
+            background: var(--bg-main);
+            padding: 35px;
+            border-radius: 24px;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .vision-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--red);
+        }
+
+        .vision-card h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .vision-card h4 i {
+            color: var(--red);
+        }
+
+        .signature {
+            margin-top: 60px;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 30px;
+        }
+
+        .signature h5 {
+            font-family: 'EB Garamond', serif;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- COPY NAVBAR FROM HOME.HTML LATER OR USE A COMPONENT -->
+    <header>
+        <div class="logo-wrap">
+            <a href="home.html">
+                <img src="images/wce-logo.png" alt="WCE Logo" style="border-radius: 50%;">
+            </a>
+        </div>
+        <div class="header-text">
+            <div class="est">Established 1947</div>
+            <a href="home.html" style="text-decoration: none; color: inherit; display: inline-block;">
+                <h1>Walchand College of Engineering</h1>
+            </a>
+            <div class="subtitle">
+                Government-Aided Autonomous Institute · Professional Excellence for 75+ Years
+            </div>
+        </div>
+    </header>
+
+        <nav><a href="home.html">Home</a>
+        <div class="nav-dropdown">
+            <a href="about.html" class="active">About Us</a>
+            <div class="mega-menu">
+                <div class="mega-col">
+                    <div class="mega-col-section">
+                        <h3><a href="about.html">WCE at Glance</a></h3>
+                    </div>
+                    <div class="mega-col-section">
+                        <h3><a href="about.html#leadership">Leadership & Governance</a></h3>
+                        <ul>
+                            <li><a href="#">Chairman</a></li>
+                            <li><a href="#">Administrative Council</a></li>
+                            <li><a href="#">MTE Society</a></li>
+                            <li><a href="#">Walchand Trust</a></li>
+                            <li><a href="#">Vision and Mission</a></li>
+                            <li><a href="#">Admin Council Subcommittees</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mega-col">
+                    <div class="mega-col-section">
+                        <h3><a href="about.html#management">Institute Management</a></h3>
+                        <ul>
+                            <li><a href="director.html">Director</a></li>
+                            <li><a href="#">Deputy Director</a></li>
+                            <li><a href="#">Vice Principal (Polytechnic)</a></li>
+                            <li><a href="#">College Development Council</a></li>
+                            <li><a href="#">Academic Council</a></li>
+                            <li><a href="#">Boards of Studies</a></li>
+                            <li><a href="#">IQAC</a></li>
+                            <li><a href="#">Organogram Structure</a></li>
+                            <li><a href="#">Heads and Deans</a></li>
+                            <li><a href="#">Managerial & Admin staff</a></li>
+                            <li><a href="#">College Committees</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mega-col">
+                    <div class="mega-col-section">
+                        <h3><a href="about.html#affiliations">Affiliations & Accreditations</a></h3>
+                        <ul>
+                            <li><a href="#">UGC, AICTE & Shivaji University</a></li>
+                            <li><a href="#">NIRF, NBA and NAAC</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-col-section">
+                        <h3><a href="about.html#compliance">Compliances & Disclosures</a></h3>
+                        <ul>
+                            <li><a href="#">Mandatory Disclosures</a></li>
+                            <li><a href="#">Annual Reports</a></li>
+                            <li><a href="#">IQAC Reports</a></li>
+                            <li><a href="#">Academic Audits</a></li>
+                            <li><a href="#">NIRF submissions</a></li>
+                            <li><a href="#">RTI</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-dropdown">
+            <a href="admissions.html">Admissions</a>
+            <div class="mega-menu">
+                <div class="mega-col">
+                    <div class="mega-col-section">
+                        <h3><a href="admissions.html">Under Graduate</a></h3>
+                        <ul>
+                            <li><a href="https://walchandsangli.ac.in/admissions/first-year-btech/">First Year B.Tech</a></li>
+                            <li><a href="https://walchandsangli.ac.in/admissions/first-year-of-btech-pio-oci-fn-ciwg-nri-students/">First Year B.Tech (PIO/OCI/FN/ CIWGC/NRI)</a></li>
+                            <li><a href="https://walchandsangli.ac.in/admissions/direct-second-year-b-tech/">Direct Second Year B.Tech</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-col-section">
+                        <h3><a href="admissions.html">Diploma</a></h3>
+                        <ul>
+                            <li><a href="https://walchandsangli.ac.in/diploma/first-year/">First Year</a></li>
+                            <li><a href="https://walchandsangli.ac.in/diploma/direct-second-year/">Direct Second Year</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mega-col">
+                    <div class="mega-col-section">
+                        <h3><a href="admissions.html">Post Graduate</a></h3>
+                        <ul>
+                            <li><a href="https://walchandsangli.ac.in/post-graduate/m-tech/">M.Tech</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-col-section">
+                        <h3><a href="https://walchandsangli.ac.in/admissions/ug-pg-for-working-professionals/">UG/ PG for Working Professionals</a></h3>
+                    </div>
+                    <div class="mega-col-section">
+                        <h3><a href="https://walchandsangli.ac.in/admissions/phd/">PhD</a></h3>
+                    </div>
+                    <div class="mega-col-section">
+                        <h3><a href="https://walchandsangli.ac.in/admissions/certificate-courses/">Certificate Courses</a></h3>
+                    </div>
+                </div>
+                <div class="mega-col">
+                    <div class="mega-col-section">
+                        <h3><a href="https://walchandsangli.ac.in/admissions/institute-level-notifications/">Institutional Level Notifications</a></h3>
+                    </div>
+                    <div class="mega-col-section">
+                        <h3><a href="https://walchandsangli.ac.in/admissions/fees-as-per-authorities-dte-fra/">Fees as per Authorities ( DTE/ FRA)</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="academics.html">Academics</a>
+        <a href="placements.html">Placements</a>
+        <a href="campus-life.html">Campus Life</a>
+        <a href="research.html">Research</a>
+        <a href="clubs.html">Clubs</a>
+        <a href="notices.html">Notices</a>
+        <a href="student-navigator.html">Connect</a>
+        <a href="contact.html">Contact Us</a></nav>
+
+    <section class="director-hero">
+        <div class="director-img-wrap">
+            <img src="images/director-rathod.png" alt="Dr. Surendra Singh Rathod">
+        </div>
+        <div class="director-intro">
+            <h1>Dr. Surendra Singh Rathod</h1>
+            <div class="title">Director, WCE Sangli</div>
+            <p>Welcome to India's premier technological legacy. At WCE, we are committed to nurturing innovation and
+                excellence in the next generation of engineers.</p>
+        </div>
+    </section>
+
+    <div class="page-wrap">
+        <div class="message-content">
+            <p>
+                It is a matter of great pride and privilege to lead Walchand College of Engineering, Sangli—an
+                institution that has stood as a beacon of academic discipline and technological innovation since 1947.
+                As we navigate the complexities of the 21st century, our focus remains steadfast on creating a
+                student-centric learning ecosystem.
+            </p>
+            <p>
+                We believe that education must transcend traditional boundaries. By integrating <strong>Indian Knowledge
+                Systems (IKS)</strong> with cutting-edge technical education, we aim to produce graduates who are not
+                only technically proficient but also socially responsible and culturally rooted. Our autonomy allows us
+                the flexibility to keep our curriculum aligned with the rapidly evolving global landscape.
+            </p>
+            <p>
+                Research, innovation, and industry-academia partnerships are the cornerstones of our growth strategy.
+                We invite you to be a part of this journey towards excellence, where tradition meets modern innovation.
+            </p>
+
+            <div class="vision-blocks">
+                <div class="vision-card">
+                    <h4><span>🚀</span> Innovation First</h4>
+                    <p>Promoting a culture of research and patent-driven development across all engineering departments.</p>
+                </div>
+                <div class="vision-card">
+                    <h4><span>🤝</span> Industry Linkage</h4>
+                    <p>Strengthening partnerships with global giants like Google, Amazon, and Microsoft for placements and research.</p>
+                </div>
+                <div class="vision-card">
+                    <h4><span>🌱</span> Holistic Growth</h4>
+                    <p>Focusing on life skills, ethics, and social responsibility alongside core technical expertise.</p>
+                </div>
+                <div class="vision-card">
+                    <h4><span>🏛️</span> Heritage & Future</h4>
+                    <p>Maintaining our 75-year legacy while implementing NEP 2020 and modern academic standards.</p>
+                </div>
+            </div>
+
+            <div class="signature">
+                <h5>Dr. Surendra Singh Rathod</h5>
+                <p>Director, Walchand College of Engineering, Sangli</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="modern-footer">
+        <!-- Footer content... simplified for now -->
+    </footer>
+
+    <script src="theme.js"></script>
+    <script src="translate.js"></script>
+</body>
+
+</html>

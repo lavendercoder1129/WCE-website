@@ -2282,3 +2282,148 @@ select.header-grid-item {
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
+
+/* MEGA MENU STYLES */
+.nav-dropdown {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    width: max-content;
+    max-width: calc(100vw - 80px);
+    background: rgba(15, 15, 15, 0.98);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 2px solid var(--red);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    display: grid;
+    grid-template-columns: max-content max-content max-content;
+    gap: 40px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 1000;
+    border-radius: 0 0 20px 20px;
+}
+
+.nav-dropdown:hover .mega-menu {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.mega-col-section {
+    margin-bottom: 30px;
+}
+
+.mega-col-section:last-child {
+    margin-bottom: 0;
+}
+
+.mega-col h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 0.5px;
+}
+
+.mega-col h3 a {
+    color: #fff !important;
+    padding: 0 !important;
+    font-size: 20px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    text-decoration: none;
+}
+
+.mega-col h3 a:hover {
+    color: var(--red) !important;
+    border-color: var(--red);
+}
+
+.mega-col h3::before {
+    content: '➔';
+    color: var(--red);
+    font-size: 14px;
+    background: rgba(192, 57, 43, 0.1);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.mega-col ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 34px;
+}
+
+.mega-col ul li {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.mega-col ul li::before {
+    content: '▶';
+    position: absolute;
+    left: -18px;
+    top: 4px;
+    font-size: 8px;
+    color: rgba(255, 255, 255, 0.3);
+    transition: color 0.2s;
+}
+
+.mega-col ul li:hover::before {
+    color: var(--red);
+}
+
+.mega-col ul li a {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6) !important;
+    padding: 0 !important;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.mega-col ul li a:hover {
+    color: #fff !important;
+    transform: translateX(5px);
+}
+
+.mega-col ul li a::after {
+    display: none !important;
+}
+
+/* Redesign for About Us button in Nav */
+.nav-dropdown > a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-dropdown > a::after {
+    content: '▼';
+    font-size: 9px;
+    margin-left: 4px;
+    opacity: 0.5;
+    transition: transform 0.3s;
+}
+
+.nav-dropdown:hover > a::after {
+    transform: rotate(180deg);
+}
